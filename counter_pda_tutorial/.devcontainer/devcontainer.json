@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/rust
 {
-	"name": "test_solana_getting-started01",
+	"name": "test_solana_counter_pda_tutorial",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"dockerComposeFile": "../docker-compose.yml",
 	"service": "apps",
@@ -25,6 +25,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "rustc --version",
 	"workspaceFolder": "/src",
 	// Configure tool-specific properties.
 	// "customizations": {},
