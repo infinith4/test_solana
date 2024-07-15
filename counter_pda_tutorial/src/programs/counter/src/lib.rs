@@ -11,7 +11,9 @@ pub mod counter {
         msg!("Creating a Counter!!");
 
         // The creation of the counter must be here
-
+        let counter = &mut ctx.accounts.counter;
+        counter.authority = ctx.accounts.authority.key();
+        counter.count = 0;
         msg!("Current count is {}", counter.count);
         msg!("The Admin PubKey is: {} ", counter.authority);
 
