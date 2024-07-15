@@ -2,7 +2,7 @@ version: '3'
 
 services:
   apps:
-    container_name: github-template-node-ts
+    container_name: test_solana_getting-started01
     build: 
       context: .
       dockerfile: Dockerfile

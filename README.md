@@ -1,1 +1,4 @@
-# github-template-devcontainer-node-ts
+# github-template-devcontainer-rust
+
+
+https://solana.com/docs/intro/dev
