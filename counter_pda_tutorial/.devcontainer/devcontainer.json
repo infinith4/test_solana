@@ -6,7 +6,8 @@
 	"dockerComposeFile": "../docker-compose.yml",
 	"service": "apps",
 	"features": {
-		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {}
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {},
+		"ghcr.io/devcontainers/features/node:1": {}
 	},
 
 	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
