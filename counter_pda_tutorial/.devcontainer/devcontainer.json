@@ -25,7 +25,6 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": "rustc --version",
 	"workspaceFolder": "/src",
 	// Configure tool-specific properties.
 	// "customizations": {},

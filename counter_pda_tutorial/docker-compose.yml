@@ -2,7 +2,7 @@ version: '3'
 
 services:
   apps:
-    container_name: test_solana_getting-started01
+    container_name: test_solana_counter_pda_tutorial
     build: 
       context: .
       dockerfile: Dockerfile

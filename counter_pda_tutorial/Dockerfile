@@ -1,5 +1,5 @@
 # FROM mcr.microsoft.com/devcontainers/rust:1-1-bullseye
-FROM mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
+FROM mcr.microsoft.com/devcontainers/rust:1-1-bullseye
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
@@ -9,5 +9,11 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
 # [Optional] Uncomment if you want to install more global node modules
-RUN su node -c "npm install -g npm@10.8.0"
+# RUN su node -c "npm install -g npm@10.8.0"
 
+RUN apt-get update && apt-get upgrade
+RUN apt-get install -y sudo pkg-config build-essential libudev-dev libssl-dev
+RUN cargo install --git https://github.com/coral-xyz/anchor --tag v0.30.1 anchor-cli --locked
+
+# CMD ["avm", "install", "latest"]
+# CMD ["avm", "use", "latest"]
