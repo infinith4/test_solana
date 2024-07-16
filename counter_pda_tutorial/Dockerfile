@@ -13,7 +13,7 @@ FROM mcr.microsoft.com/devcontainers/rust:1-1-bullseye
 
 RUN apt-get update && apt-get upgrade
 RUN apt-get install -y sudo pkg-config build-essential libudev-dev libssl-dev
-RUN cargo install --git https://github.com/coral-xyz/anchor --tag v0.29.0 anchor-cli --locked
-
+# RUN cargo install --git https://github.com/coral-xyz/anchor --tag v0.29.0 anchor-cli --locked
+# RUN ["/bin/bash", "-c", "$(curl -sSfL https://release.solana.com/v1.18.18/install)"]
 # CMD ["avm", "install", "latest"]
 # CMD ["avm", "use", "latest"]

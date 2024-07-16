@@ -21,3 +21,10 @@ Run client
 ```
 anchor run client
 ```
+
+
+cargo install solana-cargo-build-bpf
+
+
+
+cargo install --git https://github.com/project-serum/anchor --tag v0.29.0 anchor-cli --locked

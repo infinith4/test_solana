@@ -24,7 +24,8 @@ pub mod counter {
         msg!("Adding 1 to the counter!!");
 
         // Updating the counter must be here
-
+        let counter = &mut ctx.accounts.counter;
+        counter.count += 1 ;
         msg!("Current count is {}", counter.count);
         msg!("{} remaining to reach 1000 ", 1000 - counter.count);
 
