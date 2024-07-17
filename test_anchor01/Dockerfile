@@ -41,6 +41,4 @@ SHELL [ "/bin/sh", "-c" ]
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN . "$HOME/.cargo/env" && \ 
-    cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
-RUN avm install latest
-RUN avm use latest
+    cargo install --git https://github.com/coral-xyz/anchor avm --locked --force && avm install latest && avm use latest
