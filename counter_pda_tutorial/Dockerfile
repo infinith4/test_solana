@@ -11,13 +11,12 @@ FROM mcr.microsoft.com/devcontainers/rust:1-1-bullseye
 
 # [Optional] Uncomment if you want to install more global node modules
 # RUN su node -c "npm install -g npm@10.8.0"
-
-RUN apt-get update && apt-get upgrade
+SHELL ["/bin/bash", "-c"]
+RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y openssh-server sudo curl nano git
 RUN apt-get install -y pkg-config build-essential libudev-dev libssl-dev libssl-dev
-
-RUN su node -c "curl https://sh.rustup.rs -sSf | sh"
-RUN source /home/.cargo/env
+RUN mkdir -p /home/.cargo && touch /home/.cargo/env
+RUN curl -o /home https://sh.rustup.rs -sSf | sh && source /home/.cargo/env
 RUN rustup component add rustfmt
 RUN rustup update
 
