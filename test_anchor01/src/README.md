@@ -43,3 +43,7 @@ export PATH=$PWD/bin:$PATH
 
 
 cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+
+avm install latest
+
+avm use latest
