@@ -42,3 +42,10 @@ SHELL [ "/bin/sh", "-c" ]
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN . "$HOME/.cargo/env" && \ 
     cargo install --git https://github.com/coral-xyz/anchor avm --locked --force && avm install latest && avm use latest
+
+RUN apt-get update && apt-get install -y --no-install-recommends zsh && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN zsh
+#set default shell to zsh
+RUN chsh -s /bin/zsh
+CMD ["/bin/zsh"]
