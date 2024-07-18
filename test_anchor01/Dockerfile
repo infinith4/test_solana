@@ -22,58 +22,6 @@ RUN usermod -aG sudo ${DOKCER_OPERATION_USER}
 RUN echo ${DOKCER_OPERATION_USER}:${DOKCER_OPERATION_USERPASSWORD} | chpasswd && \
     echo "${DOKCER_OPERATION_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-## ユーザーの切り替え
-USER ${DOKCER_OPERATION_USER}
-
-# shellをbashに変更
-SHELL [ "/bin/bash", "-c" ]
-
-# nvmをインストール
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-
-# lts版のnodeをインストール
-RUN . $HOME/.nvm/nvm.sh && \
-    nvm install --lts && \
-    nvm use --lts && \
-    node -v && npm -v && \
-    npm i -g yarn
-
-SHELL [ "/bin/sh", "-c" ]
-
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN . "$HOME/.cargo/env" && \ 
-    cargo install --git https://github.com/coral-xyz/anchor avm --locked --force && avm install latest && avm use latest
-
-# USER root
-# RUN apt-get update && apt-get install -y \
-#     git \
-#     zsh \
-#     sed \
-#     && apt-get clean \
-#     && rm -rf /var/lib/apt/lists/*
-
-# ENV SHELL /usr/bin/zsh
-# RUN zsh
-# #set default shell to zsh
-# RUN chsh -s /bin/zsh
-
-# USER ${DOKCER_OPERATION_USER}
-
-# #zprezto install
-# RUN git clone --recursive \
-#     https://github.com/sorin-ionescu/prezto.git \
-#     $HOME/.zprezto
-# SHELL ["/bin/zsh", "-c"]
-# RUN setopt EXTENDED_GLOB; \
-#     for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do \
-#       ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; \
-#     done
-# RUN git clone --recurse https://github.com/belak/prezto-contrib $HOME/.zprezto/contrib
-# RUN sed -i "/'prompt'/c \\\ 'contrib-prompt' \\\\\n  'prompt'" /root/.zpreztorc
-# RUN sed -i "s/theme 'sorin'/theme 'spaceship'/g" /root/.zpreztorc
-
-# CMD ["/bin/zsh"]
-
 
 USER root
 
@@ -87,4 +35,34 @@ RUN echo "if [ -t 1 ]; then" >> $HOME/.bashrc
 RUN echo "exec zsh" >> $HOME/.bashrc
 RUN echo "fi" >> $HOME/.bashrc
 
-ADD .zshrc /home/solanauser/.zshrc
+ADD .zshrc $HOME/.zshrc
+
+
+# shellをbashに変更
+SHELL [ "/bin/bash", "-c" ]
+
+### install node ###########
+
+## ユーザーの切り替え
+USER ${DOKCER_OPERATION_USER}
+#### install nvm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+#### install node
+RUN . $HOME/.nvm/nvm.sh && \
+    nvm install --lts && \
+    nvm use --lts && \
+    node -v && npm -v && \
+    npm i -g yarn
+
+SHELL [ "/bin/sh", "-c" ]
+
+### install solana
+RUN sh -c "$(curl -sSfL https://release.solana.com/v1.18.18/install)"
+
+### install rust, anchor ###########
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+RUN . "$HOME/.cargo/env" && \ 
+    cargo install --git https://github.com/coral-xyz/anchor avm --tag v0.29.0 --locked --force && \
+    avm install 0.29.0 && avm use 0.29.0
+

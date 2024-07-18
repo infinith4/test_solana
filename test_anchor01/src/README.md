@@ -74,9 +74,6 @@ anchor run client
 ```
 
 
-cargo install solana-cargo-build-bpf
-
-
 
 cargo install --git https://github.com/project-serum/anchor --tag v0.29.0 anchor-cli --locked
 
@@ -93,3 +90,14 @@ avm use latest
 cargo install --git https://github.com/project-serum/anchor --tag v0.30.1 anchor-cli --locked
 
 
+
+```
+solanauser ➜ /src $ solana --version
+solana-cli 1.18.18 (src:83047136; feat:4215500110, client:SolanaLabs)
+solanauser ➜ /src $ yarn -v
+1.22.22
+solanauser ➜ /src $ node -v
+v20.15.1
+solanauser ➜ /src $ anchor --version
+anchor-cli 0.29.0
+```

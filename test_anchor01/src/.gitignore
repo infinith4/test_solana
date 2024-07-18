@@ -1,2 +1,4 @@
 solana-release/
 solana-release-*.tar.bz2
+.anchor/
+target/

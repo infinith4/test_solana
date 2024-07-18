@@ -6,6 +6,9 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+      args:
+        - USER_ID=solanauser
+        - GROUP_ID=solanauser
     # ports:
     #   - 3200:4200
     tty: true
