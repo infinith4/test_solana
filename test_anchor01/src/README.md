@@ -101,3 +101,23 @@ v20.15.1
 solanauser ➜ /src $ anchor --version
 anchor-cli 0.29.0
 ```
+
+https://examples.anchor-lang.com/docs/hello-world
+
+anchor init hello-world
+
+anchor build
+
+anchor keys list
+
+
+solana-keygen new -o /home/solanauser/.config/solana/id.json 
+
+solana airdrop 2 9B8k8RCS48PZ2UaMdEXLgRMEW7iMH6RhVU4tdQ7nJTd5 --url https://api.devnet.solana.com
+
+anchor deploy --provider.cluster devnet
+
+anchor test
+
+https://explorer.solana.com/tx/4fko7UTfo48QzKmEjNz9WuyavPQUqmViDqqvxg93V91Jthx6QCLsa6Xocz914J9KoxohShYF5pneSiH39LpLbhDC?cluster=devnet
+
