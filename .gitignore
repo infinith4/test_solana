@@ -1,2 +1,6 @@
 
 test_anchor01/.DS_Store
+
+create-account/src/.pnpm-store/*
+create-account/src/native/program/target/*
+create-account/src/anchor/target/*
