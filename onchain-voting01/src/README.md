@@ -71,3 +71,5 @@ Run anchor build again. This step is necessary to include the new program id in 
 Change the provider.cluster variable in Anchor.toml to devnet.
 Run anchor deploy
 Run anchor test
+
+https://explorer.solana.com/tx/cZRfUaFshh4jyweT3ZAtVxcCatxSHujku76ar6NJRjGxyyFE8BX7PPs8ZXv4cEvVXQKz1TX7XEqhrmeDcqHRf1j?cluster=devnet#ix-1
