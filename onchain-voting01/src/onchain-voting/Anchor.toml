@@ -11,7 +11,7 @@ onchain_voting = "87XWM9o7B1MxeaXQM6A3jAS96hmcKZJPNyYLjfDMLJxt"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "devnet"
 wallet = "/home/solanauser/.config/solana/id.json"
 
 [scripts]

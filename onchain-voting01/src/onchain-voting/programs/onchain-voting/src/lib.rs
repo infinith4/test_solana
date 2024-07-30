@@ -3,7 +3,7 @@ use anchor_lang::prelude::*;
 declare_id!("87XWM9o7B1MxeaXQM6A3jAS96hmcKZJPNyYLjfDMLJxt");
 
 #[program]
-pub mod hello_world {
+pub mod onchain_voting {
     use super::*;
     pub fn init_vote_bank(ctx: Context<InitVote>) -> Result<()> {
         // Open vote bank for public to vote on our favourite "GM" or "GN"
