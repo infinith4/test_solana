@@ -1,10 +1,10 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-	"name": "test_solana_onchain-voting01",
+	"name": "test_solana_onchain-voting",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "dockerComposeFile": "../docker-compose.yml",
-	"service": "apps_onchain-voting01",
+	"service": "apps_onchain-voting",
 	"features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true

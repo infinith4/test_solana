@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  apps_onchain-voting01:
-    container_name: test_solana_onchain-voting01
+  apps_onchain-voting:
+    container_name: test_solana_onchain-voting
     build: 
       context: .
       dockerfile: Dockerfile
