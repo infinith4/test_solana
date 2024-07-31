@@ -61,8 +61,14 @@ SHELL [ "/bin/sh", "-c" ]
 RUN sh -c "$(curl -sSfL https://release.solana.com/v1.18.18/install)"
 
 ### install rust, anchor ###########
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+### https://github.com/rust-lang/rust/tags
+ENV RUST_TOOLCHAIN=1.79.0
+ENV AVM_VERSION=0.29.0
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain "${RUST_TOOLCHAIN}"
+#RUN . "$HOME/.cargo/env"
 RUN . "$HOME/.cargo/env" && \ 
-    cargo install --git https://github.com/coral-xyz/anchor avm --tag v0.29.0 --locked --force && \
-    avm install 0.29.0 && avm use 0.29.0
+    cargo install --git https://github.com/coral-xyz/anchor avm --tag v${AVM_VERSION} --locked --force && \
+    avm install ${AVM_VERSION} && avm use ${AVM_VERSION}
 
+# cargo install --git https://github.com/coral-xyz/anchor avm --tag v0.29.0 --locked --force 
+# avm install 0.29.0 && avm use 0.29.0

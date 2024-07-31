@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   apps_onchain-voting02:
     container_name: test_solana_onchain-voting02
