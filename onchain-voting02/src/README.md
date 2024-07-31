@@ -30,7 +30,7 @@ cluster = "Localnet"
 ```
 
 
-solana airdrop 2 GuFHVKfgeQfZ1ZwtbHhrPM7vCaP2xXG4vnXLBkVZqZLw --url https://api.devnet.solana.com
+solana airdrop 5 69fhtbhT2u51ixLeGB9ESgT7UaMbRvFU6CivK3GKU9V --url https://api.devnet.solana.com
 
 
 anchor deploy
@@ -56,6 +56,47 @@ https://explorer.solana.com/address/87XWM9o7B1MxeaXQM6A3jAS96hmcKZJPNyYLjfDMLJxt
 anchor test
 
 
+Deploying cluster: https://api.devnet.solana.com
+Upgrade authority: /home/solanauser/.config/solana/id.json
+Deploying program "onchainvoting"...
+Program path: /src/target/deploy/onchainvoting.so...
+Program Id: DS8Ccd3ZqQNvF3Ftsq8H1J9p8P7GVHgY4qxCS3hNGmb7
+
+Deploy success
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/src/Anchor.toml"
+
+yarn run v1.22.22
+warning package.json: No license field
+$ /src/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+
+
+  onchainvoting
+TxHash :: 4ga46A2y3Vc4DojgRMcxtw9WMDe4tZ6WNHq9tCrEYbjBA3sJFBcb1JkTQAydneuPo8K71FmVKUqreFQHJhFafbXz
+    ✔ Creating vote bank for public to vote (1082ms)
+TxHash :: 4z2tKpv27TsFXT1j1EqMCmHrmscV8n4SnQAQqgqS7gHs8TC8o9Sx7dau36VMWna5Lb8Jzq1x2Qe47qpjhfuqWfmm
+Total GMs :: 1
+Total GNs :: 0
+    ✔ Vote for GM (1052ms)
+TxHash :: 5a4sbN14dmqwdCyTbiVb7zoytbkvvKsJggGLnRRf6Y7eXPFQutgY8GNXVyer4f99PB2HNcDYxhhPPsz29G76YcRC
+Total GMs :: 1
+Total GNs :: 1
+    ✔ Vote for GN (716ms)
+
+
+  3 passing (3s)
+
+Done in 5.21s.
+
+
+
+https://explorer.solana.com/tx/4ga46A2y3Vc4DojgRMcxtw9WMDe4tZ6WNHq9tCrEYbjBA3sJFBcb1JkTQAydneuPo8K71FmVKUqreFQHJhFafbXz?cluster=devnet
+
+https://explorer.solana.com/tx/4z2tKpv27TsFXT1j1EqMCmHrmscV8n4SnQAQqgqS7gHs8TC8o9Sx7dau36VMWna5Lb8Jzq1x2Qe47qpjhfuqWfmm?cluster=devnet
+
+https://explorer.solana.com/tx/5a4sbN14dmqwdCyTbiVb7zoytbkvvKsJggGLnRRf6Y7eXPFQutgY8GNXVyer4f99PB2HNcDYxhhPPsz29G76YcRC?cluster=devnet
 
 
 -----

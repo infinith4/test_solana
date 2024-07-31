@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("CraCBFcQKxRU4d72HFPRNZbTQJQnanaeBxPRfyxB78am");
+declare_id!("DS8Ccd3ZqQNvF3Ftsq8H1J9p8P7GVHgY4qxCS3hNGmb7");
 
 #[program]
 pub mod onchainvoting {
@@ -10,6 +10,22 @@ pub mod onchainvoting {
         ctx.accounts.vote_account.is_open_to_vote = true;
         Ok(())
     }
+
+    pub fn gib_vote(ctx: Context<GibVote>, vote_type: VoteType) -> Result<()> {
+        // If vote_type is GM increment GM by 1 else increment GN by 1
+        match vote_type {
+            VoteType::GM => {
+                msg!("Voted for GM 🤝");
+                ctx.accounts.vote_account.gm += 1; 
+            },
+            VoteType::GN => {
+                msg!("Voted for GN 🤞");
+                ctx.accounts.vote_account.gn += 1; 
+            },
+        };
+        Ok(())
+    }
+
 }
 #[derive(Accounts)]
 pub struct InitVote<'info> {
@@ -32,20 +48,6 @@ pub struct VoteBank {
     gn: u64,
 }
 
-pub fn gib_vote(ctx: Context<GibVote>, vote_type: VoteType) -> Result<()> {
-    // If vote_type is GM increment GM by 1 else increment GN by 1
-    match vote_type {
-        VoteType::GM => {
-            msg!("Voted for GM 🤝");
-            ctx.accounts.vote_account.gm += 1; 
-        },
-        VoteType::GN => {
-            msg!("Voted for GN 🤞");
-            ctx.accounts.vote_account.gn += 1; 
-        },
-    };
-    Ok(())
-}
 #[derive(Accounts)]
 pub struct GibVote<'info> {
     // we are going to store users vote in this account. Hence marking it as mutable(mut), 
