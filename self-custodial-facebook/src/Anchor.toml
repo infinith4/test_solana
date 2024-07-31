@@ -1,9 +1,8 @@
 [features]
-seeds = false
+seeds = true
 skip-lint = false
-
 [programs.devnet]
-onchain_voting = "AkN2PoD2JrWyYzmB6FEbWBncQbsMxhYH5otfmQJFMsdC"
+self_custodial_facebook = "7b2p7FLnQx8eEQQDjsZRHEYqDFMHhbm9krWsyEHUA54C"
 
 [registry]
 url = "https://api.apr.dev"

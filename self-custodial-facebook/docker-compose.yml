@@ -1,8 +1,6 @@
-version: '3'
-
 services:
-  apps_onchain-voting01:
-    container_name: test_solana_onchain-voting01
+  apps_self-custodial-facebook:
+    container_name: test_solana_self-custodial-facebook
     build: 
       context: .
       dockerfile: Dockerfile
