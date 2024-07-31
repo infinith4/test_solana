@@ -16,8 +16,8 @@ solana-keygen new -o /home/solanauser/.config/solana/id.json
 anchor keys list
 
 ```
-solanauser ➜ /src/onchain-voting $ anchor keys list
-onchain_voting: 87XWM9o7B1MxeaXQM6A3jAS96hmcKZJPNyYLjfDMLJxt
+solanauser ➜ /src $ anchor keys list
+self_custodial_facebook: EQ4UQF6WMf52Cmm4a4v9iE2y4EGYaQSNFt39vjrymiNP
 ```
 
 lib.rs の declare_id! macro に書く
@@ -30,7 +30,7 @@ cluster = "Localnet"
 ```
 
 
-solana airdrop 5 69fhtbhT2u51ixLeGB9ESgT7UaMbRvFU6CivK3GKU9V --url https://api.devnet.solana.com
+solana airdrop 5 4yVH9ezW2DFkyDH7EhovmM9zcZ6wBpt4m3uaaxeTtUwj --url https://api.devnet.solana.com
 
 
 anchor deploy
@@ -38,12 +38,12 @@ anchor deploy
 
 
 ```
-solanauser ➜ /src/onchain-voting $  anchor deploy
+solanauser ➜ /src $ anchor deploy
 Deploying cluster: https://api.devnet.solana.com
 Upgrade authority: /home/solanauser/.config/solana/id.json
-Deploying program "onchain_voting"...
-Program path: /src/onchain-voting/target/deploy/onchain_voting.so...
-Program Id: 87XWM9o7B1MxeaXQM6A3jAS96hmcKZJPNyYLjfDMLJxt
+Deploying program "self_custodial_facebook"...
+Program path: /src/target/deploy/self_custodial_facebook.so...
+Program Id: EQ4UQF6WMf52Cmm4a4v9iE2y4EGYaQSNFt39vjrymiNP
 
 Deploy success
 ```
@@ -55,12 +55,17 @@ https://explorer.solana.com/address/87XWM9o7B1MxeaXQM6A3jAS96hmcKZJPNyYLjfDMLJxt
 
 anchor test
 
-
+solanauser ➜ /src $ anchor test     
+   Compiling self-custodial-facebook v0.1.0 (/src/programs/self-custodial-facebook)
+    Finished release [optimized] target(s) in 4.84s
+   Compiling self-custodial-facebook v0.1.0 (/src/programs/self-custodial-facebook)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.60s
+     Running unittests src/lib.rs (/src/target/debug/deps/self_custodial_facebook-50d4a1e4d9f9ce67)
 Deploying cluster: https://api.devnet.solana.com
 Upgrade authority: /home/solanauser/.config/solana/id.json
-Deploying program "onchainvoting"...
-Program path: /src/target/deploy/onchainvoting.so...
-Program Id: DS8Ccd3ZqQNvF3Ftsq8H1J9p8P7GVHgY4qxCS3hNGmb7
+Deploying program "self_custodial_facebook"...
+Program path: /src/target/deploy/self_custodial_facebook.so...
+Program Id: EQ4UQF6WMf52Cmm4a4v9iE2y4EGYaQSNFt39vjrymiNP
 
 Deploy success
 
@@ -73,23 +78,34 @@ warning package.json: No license field
 $ /src/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
 
 
-  onchainvoting
-TxHash :: 4ga46A2y3Vc4DojgRMcxtw9WMDe4tZ6WNHq9tCrEYbjBA3sJFBcb1JkTQAydneuPo8K71FmVKUqreFQHJhFafbXz
-    ✔ Creating vote bank for public to vote (1082ms)
-TxHash :: 4z2tKpv27TsFXT1j1EqMCmHrmscV8n4SnQAQqgqS7gHs8TC8o9Sx7dau36VMWna5Lb8Jzq1x2Qe47qpjhfuqWfmm
-Total GMs :: 1
-Total GNs :: 0
-    ✔ Vote for GM (1052ms)
-TxHash :: 5a4sbN14dmqwdCyTbiVb7zoytbkvvKsJggGLnRRf6Y7eXPFQutgY8GNXVyer4f99PB2HNcDYxhhPPsz29G76YcRC
-Total GMs :: 1
-Total GNs :: 1
-    ✔ Vote for GN (716ms)
+  self-custodial-facebook
+User facebook address ::  BRwenrUbXYhAMutXSm4tQxtEHL3GsDDqXXsK1WEm2XSV
+Your transaction signature 5f8J2ZBzeQxz8uYKywTrQzGHDJLAUstgmRGwYzcnXMrAieshBrmT2dSJQCpv9gm9tejAUy48RomJAQ5gQHZkiSTE
+Created a new account with following details 
+ Name :: Deep 
+ Status :: always tinkring 
+ Twitter :: 0xdeep
+    ✔ Creating a new account for user (1329ms)
+usrFaceBook Address ::  BRwenrUbXYhAMutXSm4tQxtEHL3GsDDqXXsK1WEm2XSV
+Your transaction signature 5NYjyYsawsm9e9yHZjjiRrFAZB5xp7aqPks338KyY8Q1jqxyV2fUKWChZCx3hvfTY8DXLR131yNTGoqw1BiUN47g
+Created a new account with following details 
+ Name :: Deep 
+ Status :: &mut self :crab 
+ Twitter :: 0xdeep
+    ✔ Update My Status (995ms)
+Users account does not exist ::  Error: Account does not exist or has no data iKZN8HeC17UP3X8RFYDvt7iyEFRff2bMqR8pebBM8sw
+    at AccountClient.fetch (/src/node_modules/@coral-xyz/anchor/src/program/namespace/account.ts:168:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    ✔ Find Someone's Facebook (152ms)
+user facebook address ::  BRwenrUbXYhAMutXSm4tQxtEHL3GsDDqXXsK1WEm2XSV
+Your transaction signature 2yNiLZDS9Mf5i1gH3fiwFhS1aWr95Q4HkttRc6gi5Tt44qotrNNV63TdHedZTGpGnuYyrJc3Aa6Yhw1UXaoh7RdA
+User Details Not found, 'cuz we close the account
+    ✔ Close My Facebook Account (1486ms)
 
 
-  3 passing (3s)
+  4 passing (4s)
 
-Done in 5.21s.
-
+Done in 6.14s.
 
 
 https://explorer.solana.com/tx/4ga46A2y3Vc4DojgRMcxtw9WMDe4tZ6WNHq9tCrEYbjBA3sJFBcb1JkTQAydneuPo8K71FmVKUqreFQHJhFafbXz?cluster=devnet

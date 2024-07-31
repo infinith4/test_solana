@@ -5,13 +5,13 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-self_custodial_facebook = "FmQCenBZQBc5f8EnF5zTik1mxxkNPwjTNEVJY4VWFZTE"
+self_custodial_facebook = "EQ4UQF6WMf52Cmm4a4v9iE2y4EGYaQSNFt39vjrymiNP"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "devnet"
 wallet = "/home/solanauser/.config/solana/id.json"
 
 [scripts]

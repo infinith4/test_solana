@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("FmQCenBZQBc5f8EnF5zTik1mxxkNPwjTNEVJY4VWFZTE");
+declare_id!("EQ4UQF6WMf52Cmm4a4v9iE2y4EGYaQSNFt39vjrymiNP");
 
 #[program]
 pub mod self_custodial_facebook {
@@ -56,7 +56,7 @@ pub struct Initialize<'info> {
         init, 
         payer = signer, 
         space = FacebookAccount::LEN, 
-        seeds = ["self-custodial-facebook2".as_bytes(), signer.key().as_ref()], 
+        seeds = ["self-custodial-facebook".as_bytes(), signer.key().as_ref()], 
         bump,
     )] 
     pub facebook_account: Box<Account<'info, FacebookAccount>>,
