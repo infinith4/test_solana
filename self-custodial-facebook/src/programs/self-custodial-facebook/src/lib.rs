@@ -8,7 +8,7 @@ pub mod self_custodial_facebook {
 
     pub fn create_facebook(ctx: Context<Initialize>, name: String, status: String, twitter: String) -> Result<()> {
         let users_account_data = &mut ctx.accounts.facebook_account;
-        initialize_account(users_account_data, ctx.bumps.facebook_account.unwrap(), ctx.accounts.signer.key, &name, &status, &twitter)?;
+        initialize_account(users_account_data, ctx.bumps.facebook_account, ctx.accounts.signer.key, &name, &status, &twitter)?;
         log_account_creation(&name, &status, &twitter);
         Ok(())
     }
