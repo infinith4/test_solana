@@ -27,8 +27,8 @@ pub mod self_custodial_facebook {
     }
 }
 
-fn initialize_account(account: &mut Account<FacebookAccount>, bump: &u8, authority: &Pubkey, name: &str, status: &str, twitter: &str) -> Result<()> {
-    account.bump = *bump;
+fn initialize_account(account: &mut Account<FacebookAccount>, bump: u8, authority: &Pubkey, name: &str, status: &str, twitter: &str) -> Result<()> {
+    account.bump = bump;
     account.authority = *authority;
     account.name = name.to_string();
     account.status = status.to_string();
