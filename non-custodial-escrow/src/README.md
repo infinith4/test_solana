@@ -4,7 +4,14 @@ anchor init noncustodialescrow
 
 cargo clean
 
-rm /home/solanauser/.config/solana/id.json
+```
+solanauser ➜ /src $ solana-keygen recover 'prompt://?key=0/0' -o .config/solana/id.json
+[recover] seed phrase: 
+[recover] If this seed phrase has an associated passphrase, enter it now. Otherwise, press ENTER to continue: 
+Recovered pubkey `"3LeXWzkmCqHekaaGrCs9KtPgcng9wbqHSdgstifab7zp"`. Continue? (y/n): 
+y
+Wrote recovered keypair to .config/solana/id.json
+```
 
 anchor build
 
