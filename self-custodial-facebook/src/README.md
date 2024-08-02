@@ -1,6 +1,3 @@
-https://examples.anchor-lang.com/docs/onchain-voting
-
-anchor init onchainvoting
 
 
 
@@ -13,11 +10,13 @@ anchor build
 
 solana-keygen new -o /home/solanauser/.config/solana/id.json
 
+pepper reward boss rose copper bring element fire cool camp under mule
+
 anchor keys list
 
 ```
 solanauser ➜ /src $ anchor keys list
-self_custodial_facebook: EQ4UQF6WMf52Cmm4a4v9iE2y4EGYaQSNFt39vjrymiNP
+self_custodial_facebook: CEzPoUAPLvwMHhADUjaxxyPXvfY7xCvsxNwsQdPEbY2y
 ```
 
 lib.rs の declare_id! macro に書く
@@ -30,8 +29,25 @@ cluster = "Localnet"
 ```
 
 
-solana airdrop 5 4yVH9ezW2DFkyDH7EhovmM9zcZ6wBpt4m3uaaxeTtUwj --url https://api.devnet.solana.com
+solana airdrop 3 FdLadAHvHEAYjmCQJWNi7niGQG3XQFHyRqbs7FHEdEZ --url https://api.devnet.solana.com
 
+solana balance FdLadAHvHEAYjmCQJWNi7niGQG3XQFHyRqbs7FHEdEZ --url https://api.devnet.solana.com
+
+
+solanauser ➜ /src $ solana-keygen new -o /home/solanauser/.config/solana/id.json                             
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+====================================================================================
+====================================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+====================================================================================
 
 anchor deploy
 
@@ -43,13 +59,13 @@ Deploying cluster: https://api.devnet.solana.com
 Upgrade authority: /home/solanauser/.config/solana/id.json
 Deploying program "self_custodial_facebook"...
 Program path: /src/target/deploy/self_custodial_facebook.so...
-Program Id: EQ4UQF6WMf52Cmm4a4v9iE2y4EGYaQSNFt39vjrymiNP
+Program Id: Fco3EAgPY7TEh7rCdacgvovSRv6Na89JvjAAoTkD8Knu
 
 Deploy success
 ```
 
-https://explorer.solana.com/address/87XWM9o7B1MxeaXQM6A3jAS96hmcKZJPNyYLjfDMLJxt?cluster=devnet
-
+https://explorer.solana.com/address/Fco3EAgPY7TEh7rCdacgvovSRv6Na89JvjAAoTkD8Knu?cluster=devnet
+https://explorer.solana.com/tx/5C4odbVwSPDqqi2fQKKGMdWDpKpL8EvTgt1QPNqv9FZbpYBV9iNbxEmrhHgTnkY5e3Lwndh5g1PRvboJ3oGA3hov?cluster=devnet
 
 
 
@@ -135,3 +151,15 @@ https://explorer.solana.com/tx/cZRfUaFshh4jyweT3ZAtVxcCatxSHujku76ar6NJRjGxyyFE8
 
 https://book.anchor-lang.com/anchor_in_depth/PDAs.html
 https://solana.stackexchange.com/questions/8829/on-calling-ctx-bumps-getmint-account-failing-with-error-method-get-not-fo
+
+
+
+-----
+
+wallet recovery
+
+solana-keygen --help
+
+solana-keygen recover 'prompt://?key=0/0' -o .config/solana/id.json
+
+https://dev.classmethod.jp/articles/solana-wallet/

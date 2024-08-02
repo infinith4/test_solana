@@ -15,6 +15,7 @@ Wrote recovered keypair to .config/solana/id.json
 
 anchor build
 
+anchor test --skip-local-validator
 
 solana-keygen new -o /home/solanauser/.config/solana/id.json
 
@@ -24,7 +25,7 @@ anchor keys list
 
 ```
 solanauser ➜ /src $ anchor keys list
-self_custodial_facebook: CEzPoUAPLvwMHhADUjaxxyPXvfY7xCvsxNwsQdPEbY2y
+noncustodialescrow: 3TBDysJ2uQ7F8JbLAymFKcjwzjzZ3d8acWRcjYUUpURt
 ```
 
 lib.rs の declare_id! macro に書く
@@ -37,31 +38,20 @@ cluster = "Localnet"
 ```
 
 
-solana airdrop 3 FdLadAHvHEAYjmCQJWNi7niGQG3XQFHyRqbs7FHEdEZ --url https://api.devnet.solana.com
+solana airdrop 3 3LeXWzkmCqHekaaGrCs9KtPgcng9wbqHSdgstifab7zp --url https://api.devnet.solana.com
 
-solana balance FdLadAHvHEAYjmCQJWNi7niGQG3XQFHyRqbs7FHEdEZ --url https://api.devnet.solana.com
+solana balance 3LeXWzkmCqHekaaGrCs9KtPgcng9wbqHSdgstifab7zp --url https://api.devnet.solana.com
 
+```
+solanauser ➜ /src $ anchor deploy                                                                                    
+Deploying cluster: https://api.devnet.solana.com
+Upgrade authority: .config/solana/id.json
+Deploying program "noncustodialescrow"...
+Program path: /src/target/deploy/noncustodialescrow.so...
+Program Id: 3TBDysJ2uQ7F8JbLAymFKcjwzjzZ3d8acWRcjYUUpURt
 
-solanauser ➜ /src $ solana-keygen new -o /home/solanauser/.config/solana/id.json                             
-Generating a new keypair
-
-For added security, enter a BIP39 passphrase
-
-NOTE! This passphrase improves security of the recovery seed phrase NOT the
-keypair file itself, which is stored as insecure plain text
-
-BIP39 Passphrase (empty for none): 
-
-Wrote new keypair to /home/solanauser/.config/solana/id.json
-====================================================================================
-pubkey: FdLadAHvHEAYjmCQJWNi7niGQG3XQFHyRqbs7FHEdEZ
-====================================================================================
-Save this seed phrase and your BIP39 passphrase to recover your new keypair:
-bean ginger marriage away evidence sudden like citizen diagram program journey alter
-====================================================================================
-
-anchor deploy
-
+Deploy success
+```
 
 
 ```
