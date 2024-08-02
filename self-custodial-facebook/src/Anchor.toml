@@ -1,11 +1,11 @@
 [toolchain]
 
 [features]
-seeds = false
+seeds = true
 skip-lint = false
 
 [programs.localnet]
-selfcustodialfacebook = "EFEL7YPBM7r8VVtmNre8Qs2sXAAfusDMSarspGcqeJG5"
+self_custodial_facebook = "8jrnubQe4ydPNM5xp3BvBDrbeSA5Txx5xkxdEFmGjL1t"
 
 [registry]
 url = "https://api.apr.dev"

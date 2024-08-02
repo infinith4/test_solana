@@ -1,11 +1,11 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { Selfcustodialfacebook } from "../target/types/selfcustodialfacebook";
+import { SelfCustodialFacebook } from "../target/types/self_custodial_facebook";
 
-describe("selfcustodialfacebook", () => {
+describe("self-custodial-facebook", () => {
   const provider =  anchor.AnchorProvider.env();
   anchor.setProvider(provider);
-  const program = anchor.workspace.SelfCustodialFacebook as Program<Selfcustodialfacebook>;
+  const program = anchor.workspace.SelfCustodialFacebook as Program<SelfCustodialFacebook>;
 
 
   it("Creating a new account for user", async () => {

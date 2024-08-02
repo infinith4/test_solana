@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("EFEL7YPBM7r8VVtmNre8Qs2sXAAfusDMSarspGcqeJG5");
+declare_id!("8jrnubQe4ydPNM5xp3BvBDrbeSA5Txx5xkxdEFmGjL1t");
 
 #[program]
 pub mod self_custodial_facebook {
@@ -101,7 +101,7 @@ pub struct FacebookAccount {
 
 impl FacebookAccount {
     const LEN: usize = 
-         8 + // discriminator
+            8 + // discriminator
         32 + // Pubkey
         1 + // bump
         (4 + 10) + // 10 chars of Name
