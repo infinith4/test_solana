@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("8jrnubQe4ydPNM5xp3BvBDrbeSA5Txx5xkxdEFmGjL1t");
+declare_id!("D1McR4QKgw8RzgyCqoioDn3d2kwq342DpAu96f3Ka1ac");
 
 #[program]
 pub mod self_custodial_facebook {

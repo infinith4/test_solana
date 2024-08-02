@@ -5,7 +5,7 @@ seeds = true
 skip-lint = false
 
 [programs.localnet]
-self_custodial_facebook = "8jrnubQe4ydPNM5xp3BvBDrbeSA5Txx5xkxdEFmGjL1t"
+self_custodial_facebook = "D1McR4QKgw8RzgyCqoioDn3d2kwq342DpAu96f3Ka1ac"
 
 [registry]
 url = "https://api.apr.dev"
